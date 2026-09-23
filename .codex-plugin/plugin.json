@@ -1,0 +1,28 @@
+{
+  "name": "job-search-ai-toolkit-fr",
+  "version": "3.1.0",
+  "description": "Portable French job-search workflows for offer tracking, CV tailoring, and cover letters.",
+  "author": {
+    "name": "Xiangrui Chen",
+    "url": "https://github.com/reighly-cant-frontflip"
+  },
+  "homepage": "https://github.com/reighly-cant-frontflip/Job-search-ai-toolkit-fr",
+  "repository": "https://github.com/reighly-cant-frontflip/Job-search-ai-toolkit-fr",
+  "license": "CC-BY-SA-4.0",
+  "keywords": ["job-search", "cv", "cover-letter", "france", "career"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Job Search AI Toolkit — France",
+    "shortDescription": "Find roles and tailor French applications.",
+    "longDescription": "Reusable workflows for collecting and tracking job offers, tailoring a verified CV, and drafting evidence-based French cover letters.",
+    "developerName": "Xiangrui Chen",
+    "category": "Productivity",
+    "capabilities": ["Job Search", "Writing"],
+    "websiteURL": "https://github.com/reighly-cant-frontflip/Job-search-ai-toolkit-fr",
+    "defaultPrompt": [
+      "Find and qualify roles that match my profile.",
+      "Tailor my CV to this job description.",
+      "Draft a cover letter using verified CV facts."
+    ]
+  }
+}

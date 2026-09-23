@@ -1,0 +1,22 @@
+{
+  "name": "job-search-ai-toolkit-fr",
+  "interface": {
+    "displayName": "Job Search AI Toolkit — France"
+  },
+  "plugins": [
+    {
+      "name": "job-search-ai-toolkit-fr",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/reighly-cant-frontflip/Job-search-ai-toolkit-fr.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
+

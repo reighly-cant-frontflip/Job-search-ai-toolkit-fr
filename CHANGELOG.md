@@ -7,6 +7,24 @@ Ce projet suit un versionnement sémantique simplifié : **majeure** = changemen
 
 ---
 
+## [3.1.0] — 2026-09-24
+
+### Ajouté
+- Skill portable `job-search` pour la collecte, la qualification, la déduplication et le suivi des offres
+- Structure standard `skills/<nom>/SKILL.md`, commune à Claude et Codex
+- Guide d'installation réel sous `guide/job-search-ai-setup.md`
+- Manifestes de plugin portable et Codex
+- Marketplace de dépôt pour installer le toolkit complet dans Codex
+
+### Modifié
+- Skill de lettre de motivation renforcé par la vérification des faits, l'analyse des critères obligatoires et la validation avant création de document
+- Skill CV migré vers le format Agent Skills avec métadonnées YAML
+- README corrigé : tous les chemins du Quick Start correspondent désormais à des fichiers présents
+
+### Compatibilité
+- Les anciens fichiers datés à la racine sont conservés temporairement
+- Les nouvelles installations doivent utiliser les fichiers canoniques sous `skills/`
+
 ## [3.0] — 2026-08-22
 
 Première publication publique sur GitHub. Le toolkit passe d'un fichier unique distribué par mail à un dépôt structuré et versionné.

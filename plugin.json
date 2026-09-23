@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "job-search-ai-toolkit-fr",
+  "version": "3.1.0",
+  "description": "Portable French job-search workflows for offer tracking, CV tailoring, and cover letters.",
+  "author": {
+    "name": "Xiangrui Chen",
+    "url": "https://github.com/reighly-cant-frontflip"
+  },
+  "homepage": "https://github.com/reighly-cant-frontflip/Job-search-ai-toolkit-fr",
+  "repository": "https://github.com/reighly-cant-frontflip/Job-search-ai-toolkit-fr",
+  "license": "CC-BY-SA-4.0",
+  "keywords": ["job-search", "cv", "cover-letter", "france", "career"]
+}
+
