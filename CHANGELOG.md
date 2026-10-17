@@ -7,6 +7,27 @@ Ce projet suit un versionnement sémantique simplifié : **majeure** = changemen
 
 ---
 
+## [3.2.0] — 2026-10-18
+
+### Ajouté
+- Deux modes d'autorisation pour le suivi des offres : `autorisation continue` par défaut après activation explicite du workflow, et `validation par session` activable à tout moment
+- Procédure d'audit récurrent avec contrôle des offres existantes, rotation des sources et requêtes, compte rendu et gestion des incidents d'accès
+- États génériques `active`, `à vérifier` et `expirée`, accompagnés d'une date de contrôle et d'un motif
+- Synchronisation confirmée séparément entre le tracker et la source d'offres, avec reprise idempotente des réussites partielles
+- Deux horloges indépendantes pour la dernière recherche et la dernière observation marché
+
+### Modifié
+- Le skill `job-search` couvre maintenant les sessions ponctuelles, la maintenance du tracker et les audits récurrents
+- Le tracker recommandé inclut la date de vérification et l'état de synchronisation
+- Le guide d'installation documente le choix du mode d'autorisation et la configuration d'une veille récurrente
+- Les manifests de plugin passent à la version `3.2.0`
+
+### Sécurité et confidentialité
+- L'installation du toolkit ne constitue ni une autorisation d'écriture ni la création d'une tâche planifiée
+- Aucun mode n'autorise une candidature, un message, une modification de profil ou un contournement d'authentification
+- Les offres ambiguës restent `à vérifier` et ne sont jamais synchronisées automatiquement
+- Toutes les fonctions issues d'un workflow privé ont été généralisées sans publier de donnée personnelle, d'identifiant de tracker, d'adresse e-mail ou d'URL privée
+
 ## [3.1.0] — 2026-09-24
 
 ### Ajouté

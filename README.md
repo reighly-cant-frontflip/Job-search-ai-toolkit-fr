@@ -8,7 +8,7 @@ The same `SKILL.md` sources work with **Claude** and **Codex**. The instructions
 
 | Skill | Purpose |
 |---|---|
-| [`job-search`](skills/job-search/) | Collect, qualify and deduplicate offers; find official application links; update a tracker only after approval |
+| [`job-search`](skills/job-search/) | Collect, audit and deduplicate offers; verify official links; run recurring checks; synchronize a tracker under a configurable authorization mode |
 | [`cv-tailoring`](skills/cv-tailoring/) | Analyse a job description and tailor a real CV without inventing experience |
 | [`cover-letter`](skills/cover-letter/) | Draft a specific 250–320 word cover letter from verified CV or portfolio facts |
 
@@ -51,7 +51,9 @@ Job-search-ai-toolkit-fr/
 │   └── job-search-ai-setup.md         # Complete setup and usage guide
 ├── skills/
 │   ├── job-search/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── references/
+│   │       └── recurring-audit.md
 │   ├── cv-tailoring/
 │   │   └── SKILL.md
 │   └── cover-letter/
@@ -62,6 +64,12 @@ Job-search-ai-toolkit-fr/
 ```
 
 The dated Markdown files in the repository root are retained temporarily for users of earlier releases. New installations should use the canonical files under `skills/`.
+
+### Job-search authorization modes
+
+When a user explicitly starts or configures the job-search workflow, `continuous authorization` is the default for synchronizing unambiguous, qualified offers with the approved tracker and source. On first launch, the skill tells the user that they can switch at any time to `per-session validation`.
+
+Installing the toolkit alone never authorizes an external write or creates a scheduled task. Neither mode permits submitting applications, sending messages, changing a profile, or bypassing authentication.
 
 ## Design principle
 

@@ -13,6 +13,7 @@ Répondre à ce questionnaire dans un document privé :
 5. Quelles langues, autorisations de travail, compétences et outils sont vérifiables ?
 6. Quels critères sont éliminatoires ?
 7. Quels documents font foi : CV, portfolio, certifications, réalisations chiffrées ?
+8. Le suivi doit-il rester en `autorisation continue` — mode par défaut après activation du workflow — ou passer en `validation par session` ?
 
 Ne jamais publier ces réponses dans le dépôt. Les conserver dans un Project Claude, dans l'espace de travail Codex ou dans un document privé fourni au moment de la tâche.
 
@@ -33,7 +34,9 @@ Exemple de ZIP valide :
 ```text
 job-search.zip
 └── job-search/
-    └── SKILL.md
+    ├── SKILL.md
+    └── references/
+        └── recurring-audit.md
 ```
 
 Un ZIP contenant directement `SKILL.md` à sa racine n'a pas la structure attendue.
@@ -84,6 +87,8 @@ Le tracker peut être créé dans Notion, Excel, Google Sheets ou un autre outil
 | Source | Plateforme ou mot-clé d'origine |
 | Statut | À examiner, retenu, candidature envoyée, entretien, refus, etc. |
 | Date d'ajout | Date d'entrée dans le tracker |
+| Date de vérification | Dernier contrôle de disponibilité de l'offre |
+| Synchronisation | État confirmé du tracker et, si prévu, de la source |
 
 La clé de déduplication recommandée est `Entreprise + Poste`. Ne pas utiliser l'entreprise seule, car un même employeur peut publier plusieurs postes pertinents.
 
@@ -91,7 +96,8 @@ La clé de déduplication recommandée est `Entreprise + Poste`. Ne pas utiliser
 
 Tester chaque skill avec une demande réaliste :
 
-- Job search : « Recherche des offres correspondant à ce profil, présente d'abord les résultats et n'écris rien dans le tracker sans ma validation. »
+- Job search ponctuel : « Recherche des offres correspondant à ce profil et passe en validation par session avant d'écrire dans mon tracker. »
+- Audit récurrent : « Configure une veille hebdomadaire de ces sources et synchronise les offres qualifiées avec mon tracker. »
 - CV : « Compare mon CV à cette offre et indique les modifications nécessaires sans inventer de compétence. »
 - Lettre : « Rédige une lettre pour cette offre à partir de mon CV et liste les faits utilisés. »
 
@@ -100,7 +106,9 @@ Vérifier que le système :
 - charge le bon skill ;
 - n'invente pas d'expérience ni de lien ;
 - signale les critères obligatoires non couverts ;
-- demande une confirmation avant toute écriture externe ;
+- annonce le mode d'autorisation actif et explique comment le changer ;
+- n'interprète pas l'installation du skill comme une autorisation d'écrire ;
+- ne synchronise automatiquement aucune offre ambiguë ;
 - conserve les informations personnelles hors du dépôt public.
 
 ## 6. Utilisation au quotidien
@@ -108,12 +116,35 @@ Vérifier que le système :
 Le parcours recommandé est :
 
 ```text
-Recherche brute → qualification → validation humaine → tracker
-                                              ↓
-                                    CV adapté → lettre
+Recherche brute → qualification → autorisation active → tracker/source
+                                                   ↓
+                                         CV adapté → lettre
 ```
 
 La recherche d'offres, l'adaptation du CV et la lettre sont trois tâches distinctes. Les séparer facilite la vérification des faits et évite qu'une sélection d'offre déclenche automatiquement une candidature.
+
+### Autorisation continue et validation par session
+
+`autorisation continue` est le mode par défaut lorsqu'un utilisateur demande explicitement de lancer ou configurer le workflow. Il permet d'ajouter et de mettre à jour les offres qui satisfont sans ambiguïté les critères approuvés. Il ne permet jamais de postuler, d'envoyer un message ou de modifier un profil.
+
+L'utilisateur peut dire à tout moment « passer en validation par session ». Le système présente alors chaque lot proposé et attend un accord avant les écritures. Dire « passer en autorisation continue » réactive le mode par défaut pour le périmètre déjà approuvé.
+
+L'installation seule ne déclenche ni autorisation ni tâche planifiée.
+
+## 7. Configurer un audit récurrent
+
+Définir avec l'utilisateur :
+
+- la cadence et le fuseau horaire ;
+- les sources à consulter et le volume maximal par exécution ;
+- les critères de sélection et d'exclusion ;
+- le tracker et, éventuellement, la liste d'offres enregistrées à synchroniser ;
+- le canal du compte rendu ;
+- le mode d'autorisation souhaité.
+
+Chaque audit contrôle d'abord les offres déjà suivies, puis recherche de nouvelles offres. Il conserve les états `active`, `à vérifier` et `expirée`, déduplique par `Entreprise + Poste` et confirme séparément chaque destination. Une synchronisation partielle est reprise lors de l'exécution suivante sans créer de doublon.
+
+Maintenir deux horloges distinctes : l'intervalle depuis la dernière recherche et l'âge de la dernière observation marché. Une recherche fréquente ne doit pas provoquer le remplacement artificiel de l'observation à chaque exécution.
 
 ## Dépannage
 

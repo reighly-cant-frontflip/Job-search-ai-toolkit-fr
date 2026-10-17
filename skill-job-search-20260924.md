@@ -9,7 +9,15 @@ L'utilisateur demande de rechercher, collecter, qualifier, dédupliquer ou suivr
 
 ## Objectif
 
-Produire une sélection vérifiable d'offres pertinentes, avec leur lien de candidature officiel lorsque celui-ci est disponible, sans postuler ni modifier un tracker sans validation explicite.
+Produire une sélection vérifiable d'offres pertinentes, avec leur lien de candidature officiel lorsque celui-ci est disponible, puis maintenir un tracker en session ponctuelle ou récurrente sans jamais déclencher une candidature.
+
+## Modes d'autorisation
+
+Le mode par défaut est `autorisation continue` après que l'utilisateur a explicitement demandé de lancer ou configurer le workflow. Les offres qui satisfont tous les critères objectifs peuvent alors être enregistrées et mises à jour sans confirmation poste par poste.
+
+L'utilisateur peut dire à tout moment « passer en validation par session ». Dans ce mode, présenter le lot et attendre son accord avant chaque série d'écritures. Annoncer le mode actif au premier lancement et rappeler cette possibilité. L'installation du skill ne constitue jamais une autorisation d'écrire.
+
+Les deux modes excluent toute candidature, tout message, toute modification de profil ou de préférences et tout contournement d'authentification.
 
 ## Étape 1 — Préparer la session
 
@@ -38,7 +46,7 @@ Lorsque la collecte passe par un navigateur :
 - utiliser uniquement une session déjà authentifiée par l'utilisateur ;
 - ne jamais demander, deviner ni saisir ses identifiants ;
 - ne pas contourner un captcha, une vérification ou une limitation de plateforme ;
-- ne pas postuler, enregistrer, désenregistrer ou contacter quelqu'un sans demande explicite ;
+- ne pas postuler, contacter quelqu'un ou modifier un profil ;
 - limiter chaque requête à un volume raisonnable et signaler le point d'arrêt.
 
 Si une source n'est pas accessible, demander un collage des résultats ou un export plutôt que d'inventer des offres.
@@ -65,9 +73,9 @@ Pour chaque offre retenue, rechercher dans cet ordre :
 
 Ne jamais présenter un lien supposé comme vérifié. Si le lien officiel n'est pas retrouvé, écrire `Lien officiel non trouvé` et conserver la source d'origine séparément.
 
-## Étape 5 — Présenter pour validation
+## Étape 5 — Décider et synchroniser
 
-Avant toute écriture dans un tracker, présenter :
+Présenter ou consigner :
 
 - les offres brutes ;
 - les doublons et exclusions avec leur motif ;
@@ -75,21 +83,34 @@ Avant toute écriture dans un tracker, présenter :
 - le rendement par source ou mot-clé : nombre lu, nombre retenu ;
 - une observation concise sur les compétences, niveaux d'expérience ou types d'employeurs récurrents.
 
-Demander une validation explicite. Cette validation est obligatoire avant d'ajouter, modifier ou supprimer des données dans Notion, un tableur ou tout autre tracker.
+En `validation par session`, demander une confirmation explicite avant d'écrire. En `autorisation continue`, synchroniser uniquement les offres sans ambiguïté qui respectent les critères déjà approuvés. Si le contrat, la localisation, l'identité exacte du poste ou un critère éliminatoire reste incertain, classer l'offre `à vérifier` sans la synchroniser automatiquement.
 
-## Étape 6 — Mettre à jour le suivi après validation
+## Étape 6 — Mettre à jour et confirmer le suivi
 
 Enregistrer au minimum :
 
-| Entreprise | Poste | Contrat | Localisation | Catégorie | Lien officiel | Source | Statut | Date d'ajout |
-|---|---|---|---|---|---|---|---|---|
+| Entreprise | Poste | Contrat | Localisation | Catégorie | Lien officiel | Source | Statut | Date d'ajout | Date de vérification | Synchronisation |
+|---|---|---|---|---|---|---|---|---|---|---|
 
-Ajouter aussi la paire `Entreprise + Poste` à l'historique de déduplication. En cas d'échec d'écriture, ne pas recommencer en boucle : préciser ce qui a été écrit et ce qui reste à faire.
+Ajouter aussi la paire `Entreprise + Poste` à l'historique de déduplication. Confirmer séparément l'écriture dans le tracker et l'enregistrement dans la source lorsque cette fonction fait partie du workflow. Conserver les états partiels `tracker réussi / source en attente` ou `source réussie / tracker en attente`, puis reprendre sans doublon lors de la session suivante.
+
+## Audit récurrent
+
+Pour chaque audit :
+
+1. Lire le tracker, l'historique, la dernière session et la dernière observation marché.
+2. Calculer séparément l'intervalle depuis la dernière recherche et l'âge de la dernière observation publiée.
+3. Reclasser les offres suivies comme `active`, `à vérifier` ou `expirée`, avec date et motif ; ne pas supprimer l'historique.
+4. Faire tourner les sources et requêtes selon leur rendement, puis collecter, dédupliquer et qualifier.
+5. Appliquer le mode d'autorisation actif et relire chaque destination après synchronisation.
+6. Produire un compte rendu des changements, nouvelles offres, exclusions, rendements, états partiels et incidents d'accès.
+
+La fréquence de recherche ne remet pas à zéro l'observation marché. La renouveler selon son propre âge, par défaut chaque semaine.
 
 ## Contraintes
 
 - Ne jamais inventer une offre, une date, un contrat, un salaire, un lien ou une adéquation avec le profil.
-- Ne jamais postuler ou contacter un tiers sans instruction explicite.
+- Ne jamais postuler, contacter un tiers ou modifier un profil dans le cadre de ce workflow.
 - Respecter les limites des plateformes et arrêter la collecte en cas de blocage de sécurité.
 - Adapter le processus aux outils réellement disponibles ; ne pas prétendre disposer d'un connecteur absent.
 
