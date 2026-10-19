@@ -7,6 +7,28 @@ Ce projet suit un versionnement sémantique simplifié : **majeure** = changemen
 
 ---
 
+## [3.3.0] — 2026-10-19
+
+### Ajouté
+- Parcours guidé de création d'un système Notion de recherche d'emploi, depuis les critères candidat jusqu'à la vérification du Dashboard
+- Architecture par défaut avec une base `Jobs` unique, six vues d'action et les pages `Search Sessions`, `Market Observations`, `Search Source Library` et `Operating Rules`
+- Schéma portable précisant les propriétés, types, options de statut, états de synchronisation, filtres, tris et groupements
+- Gabarits de session de recherche et d'observation marché, avec pages modèles lorsque les templates natifs ne sont pas supportés
+- Parcours distinct pour raccorder et migrer un tracker existant sans dupliquer la source de vérité
+- Modes dégradés explicites pour les connexions absentes, en lecture seule ou incapables de créer certaines vues ou templates
+
+### Modifié
+- Le skill `job-search` se déclenche désormais aussi pour construire ou raccorder un tracker Notion complet
+- L'audit récurrent utilise le Dashboard déployé comme point d'entrée, `Jobs` comme source de vérité et les pages opératoires comme mémoire
+- Le guide d'installation commence maintenant par un prompt de déploiement Notion 0→1 et décrit le contrôle post-création
+- Les manifests de plugin passent à la version `3.3.0`
+
+### Sécurité et confidentialité
+- Une demande explicite de construction autorise uniquement les composants présentés dans la destination confirmée ; l'installation seule ne crée rien
+- La planification d'une veille reste une action séparée qui nécessite une demande explicite
+- Les liens privés restent dans l'espace Notion de l'utilisateur et aucune donnée personnelle du workflow d'origine n'est publiée
+- Le skill ne prétend jamais qu'une vue, un template ou une propriété non supportée a été créé
+
 ## [3.2.0] — 2026-10-18
 
 ### Ajouté

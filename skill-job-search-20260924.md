@@ -5,11 +5,25 @@
 
 ## Déclencheur
 
-L'utilisateur demande de rechercher, collecter, qualifier, dédupliquer ou suivre des offres d'emploi.
+L'utilisateur demande de construire ou raccorder son système de suivi, puis de rechercher, collecter, qualifier, dédupliquer ou suivre des offres d'emploi.
 
 ## Objectif
 
 Produire une sélection vérifiable d'offres pertinentes, avec leur lien de candidature officiel lorsque celui-ci est disponible, puis maintenir un tracker en session ponctuelle ou récurrente sans jamais déclencher une candidature.
+
+## Déployer le système Notion de zéro
+
+Lorsque l'utilisateur demande de créer son espace de recherche d'emploi, vérifier d'abord les capacités Notion réellement disponibles. Proposer de créer un nouveau système ou de raccorder un tracker existant.
+
+Le modèle par défaut utilise une seule base `Jobs` comme source de vérité, sous une page `Job Search Dashboard`, avec les vues `À traiter — Active`, `À vérifier`, `Expirées`, `Candidatures envoyées`, `Nouvelles — 7 jours` et `Par track`. Créer aussi les sous-pages `Search Sessions`, `Market Observations`, `Search Source Library` et `Operating Rules`.
+
+La base `Jobs` conserve au minimum : Poste, Entreprise, Contrat, Localisation, Track, Priorité, Statut, Source, Lien officiel, Date de publication, Date d'ajout, Dernière vérification, Adéquation, Contrainte, Synchronisation et Clé de déduplication.
+
+Avant la création, recueillir les objectifs, localisations, contrats, tracks, exclusions, sources et cadence souhaitée, puis afficher la destination et les composants à créer. Après la création, relire les propriétés, options, vues, filtres et pages modèles. Retourner le lien du Dashboard et signaler tout composant partiel ou non supporté.
+
+Sans connexion Notion, fournir le blueprint et les étapes manuelles sans prétendre avoir créé le site. Pour un tracker existant, inspecter et réutiliser la structure compatible ; ne pas changer un type de propriété ou déplacer des données sans mapping vérifié.
+
+La demande de construction autorise les créations présentées dans la destination choisie. Elle ne crée pas automatiquement une veille planifiée : celle-ci doit être demandée séparément.
 
 ## Modes d'autorisation
 

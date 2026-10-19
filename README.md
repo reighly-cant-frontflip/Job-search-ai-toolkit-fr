@@ -1,6 +1,6 @@
 # 🤖 Job Search AI Toolkit — France
 
-A portable set of AI skills for job seekers in France: job discovery and tracking, CV tailoring, and evidence-based cover letters.
+A portable set of AI skills for job seekers in France: zero-to-one Notion tracking setup, job discovery and recurring audits, CV tailoring, and evidence-based cover letters.
 
 The same `SKILL.md` sources work with **Claude** and **Codex**. The instructions are written in French and can be adapted to other markets.
 
@@ -8,7 +8,7 @@ The same `SKILL.md` sources work with **Claude** and **Codex**. The instructions
 
 | Skill | Purpose |
 |---|---|
-| [`job-search`](skills/job-search/) | Collect, audit and deduplicate offers; verify official links; run recurring checks; synchronize a tracker under a configurable authorization mode |
+| [`job-search`](skills/job-search/) | Build or connect a complete Notion job-search system, collect and audit offers, run recurring checks, and synchronize tracking under a configurable authorization mode |
 | [`cv-tailoring`](skills/cv-tailoring/) | Analyse a job description and tailor a real CV without inventing experience |
 | [`cover-letter`](skills/cover-letter/) | Draft a specific 250–320 word cover letter from verified CV or portfolio facts |
 
@@ -53,6 +53,8 @@ Job-search-ai-toolkit-fr/
 │   ├── job-search/
 │   │   ├── SKILL.md
 │   │   └── references/
+│   │       ├── notion-schema.md
+│   │       ├── notion-site-setup.md
 │   │       └── recurring-audit.md
 │   ├── cv-tailoring/
 │   │   └── SKILL.md
@@ -64,6 +66,12 @@ Job-search-ai-toolkit-fr/
 ```
 
 The dated Markdown files in the repository root are retained temporarily for users of earlier releases. New installations should use the canonical files under `skills/`.
+
+### Zero-to-one Notion setup
+
+Ask the `job-search` skill to build a complete job-search system in Notion. It can create or connect a `Job Search Dashboard`, use one `Jobs` database as the source of truth, add action-oriented views, and prepare pages for search sessions, market observations, source management and operating rules.
+
+The skill verifies the resulting properties and views instead of assuming that a successful request created every component. When a connection cannot create a view or template, it reports the partial deployment and gives exact manual steps. Installing the toolkit does not create or modify a Notion workspace by itself.
 
 ### Job-search authorization modes
 

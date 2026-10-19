@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "job-search-ai-toolkit-fr",
-  "version": "3.2.0",
-  "description": "Portable French job-search workflows for recurring offer audits, synchronized tracking, CV tailoring, and cover letters.",
+  "version": "3.3.0",
+  "description": "Portable French job-search workflows for zero-to-one Notion setup, recurring offer audits, synchronized tracking, CV tailoring, and cover letters.",
   "author": {
     "name": "Xiangrui Chen",
     "url": "https://github.com/reighly-cant-frontflip"

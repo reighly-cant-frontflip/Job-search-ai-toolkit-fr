@@ -2,6 +2,8 @@
 
 Lire cette référence lorsqu'un utilisateur demande de configurer ou d'exécuter une veille récurrente, un contrôle du tracker ou une synchronisation continue.
 
+Si le tracker utilise le site Notion du toolkit, lire aussi [son schéma](notion-schema.md). Utiliser `Jobs` comme source de vérité, écrire le compte rendu sous `Search Sessions`, publier les observations sous `Market Observations` et lire les critères actifs dans `Operating Rules`.
+
 ## Activation et autorisation
 
 L'installation du toolkit ne déclenche aucune écriture. Le workflow récurrent commence lorsque l'utilisateur demande explicitement de le lancer ou de le configurer.

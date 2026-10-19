@@ -36,6 +36,8 @@ job-search.zip
 └── job-search/
     ├── SKILL.md
     └── references/
+        ├── notion-schema.md
+        ├── notion-site-setup.md
         └── recurring-audit.md
 ```
 
@@ -72,30 +74,54 @@ codex plugin marketplace add reighly-cant-frontflip/Job-search-ai-toolkit-fr
 Installer ensuite `job-search-ai-toolkit-fr` depuis le répertoire des plugins et ouvrir une nouvelle tâche. Une publication ultérieure dans le répertoire universel pourra remplacer cette étape, sans modifier le contenu des skills.
 
 
-## 4. Préparer le tracker
+## 4. Construire le site Notion de zéro
 
-Le tracker peut être créé dans Notion, Excel, Google Sheets ou un autre outil. Utiliser au minimum ces champs :
+Connecter Notion, puis lancer par exemple :
+
+> Crée mon système complet de recherche d'emploi dans Notion. Guide-moi depuis mes critères jusqu'au Dashboard, vérifie la structure créée et ne planifie rien sans me le proposer séparément.
+
+Le skill propose soit de créer un nouveau site, soit de raccorder un tracker existant. Pour une création, il recueille les rôles, localisations, contrats, tracks, exclusions, sources et cadence souhaitée, puis affiche la destination et la structure avant d'écrire.
+
+Le modèle par défaut est :
+
+```text
+Job Search Dashboard
+├── Jobs — base unique des offres
+├── Search Sessions
+├── Market Observations
+├── Search Source Library
+└── Operating Rules
+```
+
+La base `Jobs` contient :
 
 | Champ | Usage |
 |---|---|
+| Poste | Intitulé exact et titre de la page |
 | Entreprise | Nom officiel de l'employeur |
-| Poste | Intitulé exact |
-| Contrat | CDI, CDD, stage, alternance ou non précisé |
-| Localisation | Ville, région ou télétravail |
-| Catégorie | Segment défini par le candidat |
-| Lien officiel | Page carrière ou ATS vérifié |
-| Source | Plateforme ou mot-clé d'origine |
-| Statut | À examiner, retenu, candidature envoyée, entretien, refus, etc. |
-| Date d'ajout | Date d'entrée dans le tracker |
-| Date de vérification | Dernier contrôle de disponibilité de l'offre |
-| Synchronisation | État confirmé du tracker et, si prévu, de la source |
+| Contrat | Type de contrat adapté au marché |
+| Localisation | Ville, région et modalité de travail |
+| Track | Axe de recherche défini par l'utilisateur |
+| Priorité | haute, moyenne ou basse |
+| Statut | active, à vérifier, expirée ou applied |
+| Source | Plateforme, ATS ou autre origine |
+| Lien officiel | Page carrière ou ATS stable |
+| Dates | Publication, ajout et dernière vérification |
+| Adéquation / Contrainte | Motif de correspondance et point d'attention |
+| Synchronisation | État confirmé du tracker et de la source |
+| Clé de déduplication | Valeur normalisée `entreprise|poste` |
 
-La clé de déduplication recommandée est `Entreprise + Poste`. Ne pas utiliser l'entreprise seule, car un même employeur peut publier plusieurs postes pertinents.
+Le Dashboard ajoute les vues `À traiter — Active`, `À vérifier`, `Expirées`, `Candidatures envoyées`, `Nouvelles — 7 jours` et `Par track`. Après création, le skill relit les propriétés, options, filtres, vues et pages modèles avant d'annoncer le site comme terminé.
+
+Sans connexion ou sans permission d'écriture, il fournit le blueprint et les étapes manuelles en signalant que le site n'a pas été construit. Si la connexion ne peut pas créer les vues ou templates, elle crée les composants supportés et énumère précisément le travail restant.
+
+La clé de déduplication est `Entreprise + Poste`. Ne jamais utiliser l'entreprise seule, car un même employeur peut publier plusieurs postes pertinents.
 
 ## 5. Tester les skills
 
 Tester chaque skill avec une demande réaliste :
 
+- Installation Notion : « Construis mon Dashboard de recherche d'emploi dans Notion à partir de zéro, puis vérifie chaque composant. »
 - Job search ponctuel : « Recherche des offres correspondant à ce profil et passe en validation par session avant d'écrire dans mon tracker. »
 - Audit récurrent : « Configure une veille hebdomadaire de ces sources et synchronise les offres qualifiées avec mon tracker. »
 - CV : « Compare mon CV à cette offre et indique les modifications nécessaires sans inventer de compétence. »
@@ -104,6 +130,8 @@ Tester chaque skill avec une demande réaliste :
 Vérifier que le système :
 
 - charge le bon skill ;
+- distingue une création réelle, un raccordement, un plan manuel et un déploiement partiel ;
+- ne prétend pas avoir créé une propriété, une vue ou un template non supporté ;
 - n'invente pas d'expérience ni de lien ;
 - signale les critères obligatoires non couverts ;
 - annonce le mode d'autorisation actif et explique comment le changer ;

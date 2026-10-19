@@ -1,11 +1,19 @@
 ---
 name: job-search
-description: Rechercher, auditer, qualifier, dédupliquer et synchroniser des offres avec un tracker, en session ponctuelle ou récurrente, sans jamais déclencher une candidature.
+description: Construire ou raccorder un tracker Notion, puis rechercher, auditer, qualifier, dédupliquer et synchroniser des offres en session ponctuelle ou récurrente, sans jamais déclencher une candidature.
 ---
 
 # Recherche et suivi d'offres
 
 Produire une sélection vérifiable avec le lien officiel de candidature lorsqu'il existe. Utiliser ce skill pour une recherche ponctuelle, la maintenance d'un tracker ou un audit récurrent.
+
+## Construire ou raccorder le système de suivi
+
+Lorsque l'utilisateur demande de partir de zéro, de créer son espace Notion ou de déployer le système complet, lire [le parcours de déploiement Notion](references/notion-site-setup.md) puis [le schéma du site](references/notion-schema.md). Construire une base `Jobs` unique comme source de vérité, ses vues d'action, puis les pages de sessions, observations marché, sources de recherche et règles opératoires.
+
+Lorsque l'utilisateur apporte un tracker existant, inspecter sa structure réelle avant de proposer ou d'appliquer un mapping. Réutiliser ce qui est compatible. Ne pas modifier un type de propriété, déplacer des données ou recréer une base équivalente sans avoir vérifié la couverture et expliqué la migration.
+
+Une demande explicite de construction autorise les créations dans la destination et le périmètre présentés. L'installation du skill seule ne crée rien. Une veille planifiée reste une action distincte : la proposer après le déploiement, mais ne la créer que si l'utilisateur le demande.
 
 ## Choisir le mode d'autorisation
 

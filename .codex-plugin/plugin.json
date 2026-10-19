@@ -1,7 +1,7 @@
 {
   "name": "job-search-ai-toolkit-fr",
-  "version": "3.2.0",
-  "description": "Portable French job-search workflows for recurring offer audits, synchronized tracking, CV tailoring, and cover letters.",
+  "version": "3.3.0",
+  "description": "Portable French job-search workflows for zero-to-one Notion setup, recurring offer audits, synchronized tracking, CV tailoring, and cover letters.",
   "author": {
     "name": "Xiangrui Chen",
     "url": "https://github.com/reighly-cant-frontflip"
@@ -13,13 +13,14 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Job Search AI Toolkit — France",
-    "shortDescription": "Find roles and tailor French applications.",
-    "longDescription": "Reusable workflows for collecting, auditing and synchronizing job offers, tailoring a verified CV, and drafting evidence-based French cover letters.",
+    "shortDescription": "Build tracking, find roles and tailor applications.",
+    "longDescription": "Reusable workflows for building a Notion job-search system, collecting, auditing and synchronizing offers, tailoring a verified CV, and drafting evidence-based French cover letters.",
     "developerName": "Xiangrui Chen",
     "category": "Productivity",
     "capabilities": ["Job Search", "Writing"],
     "websiteURL": "https://github.com/reighly-cant-frontflip/Job-search-ai-toolkit-fr",
     "defaultPrompt": [
+      "Build my complete job-search tracking system in Notion.",
       "Find, audit and synchronize roles that match my profile.",
       "Tailor my CV to this job description.",
       "Draft a cover letter using verified CV facts."
